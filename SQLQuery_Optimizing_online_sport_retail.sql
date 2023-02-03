@@ -48,15 +48,15 @@ ORDER BY listing_price DESC;
 /*
 brand    listing_price    count_product
 Adidas      300                2
-Adidas      280				   4
-Adidas      240				   5
-Adidas      230				   8
-Adidas      220				   11
-Nike        200				   1
-Adidas		200				   8
-Nike		190				   2
-Adidas		190				   7
-Nike		180				   4
+Adidas      280		       4
+Adidas      240		       5
+Adidas      230		       8
+Adidas      220		       11
+Nike        200		       1
+Adidas	    200		       8
+Nike	    190		       2
+Adidas	    190		       7
+Nike	    180		       4
 ...         ...               ...
 */
 
@@ -78,13 +78,13 @@ ORDER BY total_revenue DESC;
 
 /*
 brand   listing_price   count_product  total_revenue    price_category
-Adidas    79.99				322		   1500530.45849      Expensive
-Adidas    129.99			96		    806276.78219       Elite
-...		   ...				 ...		 ...				...
-Adidas     49.99			183          544876.9183      Average
-...        ...               ...         ...                ...
-Nike      129.95             12          45381.24963       Elite
-Nike      159.95			 31          40165.79978       Elite
+Adidas    79.99		   322	        1500530.45849      Expensive
+Adidas    129.99	    96		 806276.78219       Elite
+...	   ...		   ...		 ...		     ...
+Adidas     49.99	   183          544876.9183         Average
+...        ...             ...           ...                 ...
+Nike      129.95            12           45381.24963        Elite
+Nike      159.95	    31           40165.79978        Elite
 ...        ...               ...          ...               ...
 */
 
@@ -99,8 +99,8 @@ HAVING brand IS NOT NULL
 ORDER BY average_discount;
 /*
     brand    averge_discount
-	 Nike       0.0
-	Adidas     33.452427
+    Nike       0.0
+    Adidas     33.452427
 */
 
 -- Checked the strength and direction of a correlation between revenue and reviews.
@@ -156,12 +156,12 @@ ORDER BY description_length;
 /*
 	 description_length     average_rating
 	      0                     1.87
-		100						3.21
-		200						3.27
-		300						3.29
-		400					    3.32
-		500						3.12
-		600						3.65
+	     100		    3.21
+	     200		    3.27
+	     300		    3.29
+	     400		    3.32
+	     500		    3.12
+	     600		    3.65
 */
 
 -- Count the number of review per brand per month.
@@ -177,7 +177,7 @@ GROUP BY b.brand, month
 HAVING b.brand IS NOT NULL
     AND DATEPART(month,  t.last_visited) IS NOT NULL
 ORDER BY b.brand,
-		 month;
+         month;
 /*
 brand	month	num_reviews
 Adidas	1.0	       253
@@ -189,9 +189,9 @@ Adidas	6.0	       159
 Adidas	7.0	       170
 Adidas	8.0	       189
 Adidas	9.0	       181
-Adidas	10.0	   192
-Adidas	11.0	   150
-Adidas	12.0	   190
+Adidas	10.0	       192
+Adidas	11.0	       150
+Adidas	12.0	       190
 Nike	1.0	        52
 Nike	2.0	        52
 Nike	3.0	        55
@@ -201,9 +201,9 @@ Nike	6.0	        43
 Nike	7.0	        37
 Nike	8.0	        29
 Nike	9.0	        28
-Nike	10.0	    47
-Nike	11.0	    38
-Nike	12.0	    35
+Nike	10.0	        47
+Nike	11.0	        38
+Nike	12.0	        35
 */
 
 -- Create the footwear CTE, then calculate the number of products and
@@ -228,7 +228,7 @@ WITH footwear AS
     FROM footwear;
 /*
 	 num_footwear_product     average_revenue
-		2700                     4235.46138
+		2700                 4235.46138
 */
 
 -- Count clothing product for each brand by creating footwear CTE
